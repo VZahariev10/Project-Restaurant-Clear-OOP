@@ -1,0 +1,18 @@
+package warehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Warehouse {
+    Map<Product.Type, Product> quantities;
+
+    public Warehouse() {
+        this.quantities = new HashMap<>();
+        quantities.put(Product.Type.BATTER, new Product(Product.Type.BATTER,10));
+        quantities.put(Product.Type.HAM, new Product(Product.Type.HAM,10));
+        quantities.put(Product.Type.MOZARELLA, new Product(Product.Type.MOZARELLA,5));
+        quantities.put(Product.Type.TOMATO_SAUCE, new Product(Product.Type.TOMATO_SAUCE,5));
+        quantities.put(Product.Type.CHEDDAR, new Product(Product.Type.CHEDDAR,5));
+        quantities.put(Product.Type.PEPERONI, new Product(Product.Type.PEPERONI,6));
+    }
+}

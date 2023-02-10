@@ -1,0 +1,98 @@
+diff --git a/src/warehouse/Product.java b/src/warehouse/Product.java
+--- a/src/warehouse/Product.java
++++ b/src/warehouse/Product.java
+@@ -1,8 +1,7 @@
+ package warehouse;
+ 
+ public class Product {
+-    private Alcohol alcohol;
+-    private final Type type;     //ТУК ИЗПОЛЗВАМ ФАЙНЪЛ ЗА ДА ИЗБЯГАМЕ ОТ "NULL" и му задаваме дефолтна стойност "Ънноун".
++    private final Type type;//ТУК ИЗПОЛЗВАМ ФАЙНЪЛ ЗА ДА ИЗБЯГАМЕ ОТ "NULL" и му задаваме дефолтна стойност "Ънноун".
+     private double availability;
+ 
+     public static enum Type {
+@@ -46,30 +45,6 @@
+             return deliveryPrice;
+         }
+     }
+-    public static enum Alcohol{
+-        VODKA(7,14),
+-        WHISKY(7,18),
+-        RUM(7,11);
+-//        ROSE(7),
+-//        RED_WINE(7),
+-//        WHITE_WINE(7),
+-//        SCHNAPPS(7);
+-
+-        private double quantity;
+-        private double deliveryPrice;
+-        Alcohol(double quantity, double deliveryPrice) {
+-            this.quantity = quantity;
+-            this.deliveryPrice = deliveryPrice;
+-        }
+-
+-        public double getQuantity() {
+-            return quantity;
+-        }
+-
+-        public double getDeliveryPrice() {
+-            return deliveryPrice;
+-        }
+-    }
+ 
+     public Product(Type type, double availability) {
+         this.availability = availability;
+@@ -89,3 +64,4 @@
+                 '}';
+     }
+ }
++
+diff --git a/src/warehouse/Warehouse.java b/src/warehouse/Warehouse.java
+--- a/src/warehouse/Warehouse.java
++++ b/src/warehouse/Warehouse.java
+@@ -4,6 +4,7 @@
+ import java.util.Map;
+ 
+ public class Warehouse {
+-    Map<Product.Type, Product> quantities;
++    Map<Product.Type, Product> foodQuantities;
++    Map<Alcohol.Type, Alcohol> alcoholQuantities;
+ 
+     public Warehouse() {
+@@ -8,11 +9,29 @@
+ 
+     public Warehouse() {
+-        this.quantities = new HashMap<>();
+-        quantities.put(Product.Type.BATTER, new Product(Product.Type.BATTER,10));
+-        quantities.put(Product.Type.HAM, new Product(Product.Type.HAM,10));
+-        quantities.put(Product.Type.MOZARELLA, new Product(Product.Type.MOZARELLA,5));
+-        quantities.put(Product.Type.TOMATO_SAUCE, new Product(Product.Type.TOMATO_SAUCE,5));
+-        quantities.put(Product.Type.CHEDDAR, new Product(Product.Type.CHEDDAR,5));
+-        quantities.put(Product.Type.PEPERONI, new Product(Product.Type.PEPERONI,6));
++        this.alcoholQuantities = new HashMap<>();
++        this.foodQuantities = new HashMap<>();
++        foodQuantities.put(Product.Type.BATTER, new Product(Product.Type.BATTER, 10));
++        foodQuantities.put(Product.Type.TOMATO_SAUCE, new Product(Product.Type.TOMATO_SAUCE, 5));
++        foodQuantities.put(Product.Type.HAM, new Product(Product.Type.HAM, 10));
++        foodQuantities.put(Product.Type.MOZARELLA, new Product(Product.Type.MOZARELLA, 5));
++        foodQuantities.put(Product.Type.MUSHROOM, new Product(Product.Type.MUSHROOM, 5));
++        foodQuantities.put(Product.Type.TOMATO, new Product(Product.Type.TOMATO, 5));
++        foodQuantities.put(Product.Type.BBQ_SAUCE, new Product(Product.Type.BBQ_SAUCE, 5));
++        foodQuantities.put(Product.Type.CHICKEN, new Product(Product.Type.CHICKEN, 5));
++        foodQuantities.put(Product.Type.FILLET, new Product(Product.Type.FILLET, 5));
++        foodQuantities.put(Product.Type.CUCUMBER, new Product(Product.Type.CUCUMBER, 5));
++        foodQuantities.put(Product.Type.CHEESE, new Product(Product.Type.CHEESE, 5));
++        foodQuantities.put(Product.Type.PEPERONI, new Product(Product.Type.PEPERONI, 6));
++        foodQuantities.put(Product.Type.YELLOW_CHEESE, new Product(Product.Type.YELLOW_CHEESE, 5));
++        foodQuantities.put(Product.Type.PARSLEY, new Product(Product.Type.PARSLEY, 5));
++        foodQuantities.put(Product.Type.LETTUCE, new Product(Product.Type.LETTUCE, 5));
++        foodQuantities.put(Product.Type.ARUGULA, new Product(Product.Type.ARUGULA, 5));
++        foodQuantities.put(Product.Type.CARROT, new Product(Product.Type.CARROT, 5));
++        foodQuantities.put(Product.Type.CABBAGE, new Product(Product.Type.CABBAGE, 5));
++        foodQuantities.put(Product.Type.CORN, new Product(Product.Type.CORN, 5));
++        foodQuantities.put(Product.Type.ONION, new Product(Product.Type.ONION, 5));
++        foodQuantities.put(Product.Type.CHEDDAR, new Product(Product.Type.CHEDDAR, 5));
++
++        alcoholQuantities.put(Alcohol.Type.VODKA,new Alcohol(Alcohol.Type.VODKA, 10));
+     }
+ }

@@ -1,0 +1,49 @@
+diff --git a/src/warehouse/Product.java b/src/warehouse/Product.java
+--- a/src/warehouse/Product.java
++++ b/src/warehouse/Product.java
+@@ -1,8 +1,7 @@
+ package warehouse;
+ 
+ public class Product {
+-    private Alcohol alcohol;
+-    private final Type type;     //ТУК ИЗПОЛЗВАМ ФАЙНЪЛ ЗА ДА ИЗБЯГАМЕ ОТ "NULL" и му задаваме дефолтна стойност "Ънноун".
++    private final Type type;//ТУК ИЗПОЛЗВАМ ФАЙНЪЛ ЗА ДА ИЗБЯГАМЕ ОТ "NULL" и му задаваме дефолтна стойност "Ънноун".
+     private double availability;
+ 
+     public static enum Type {
+@@ -46,30 +45,6 @@
+             return deliveryPrice;
+         }
+     }
+-    public static enum Alcohol{
+-        VODKA(7,14),
+-        WHISKY(7,18),
+-        RUM(7,11);
+-//        ROSE(7),
+-//        RED_WINE(7),
+-//        WHITE_WINE(7),
+-//        SCHNAPPS(7);
+-
+-        private double quantity;
+-        private double deliveryPrice;
+-        Alcohol(double quantity, double deliveryPrice) {
+-            this.quantity = quantity;
+-            this.deliveryPrice = deliveryPrice;
+-        }
+-
+-        public double getQuantity() {
+-            return quantity;
+-        }
+-
+-        public double getDeliveryPrice() {
+-            return deliveryPrice;
+-        }
+-    }
+ 
+     public Product(Type type, double availability) {
+         this.availability = availability;
+@@ -89,3 +64,4 @@
+                 '}';
+     }
+ }
++
